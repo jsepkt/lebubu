@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liber Lebubu - The Scripture of Avarice</title>
+    <link rel="icon" href="/lebubu.jpg" type="image/jpeg">
+    
+    <!-- Ancient & Book Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --blood-red: #8a0303;
+            --text-color: #1a1a1a;
+            --parchment-bg: #fdf5e6;
+            --dark-parchment: #d3c5ab;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'EB Garamond', serif;
+            color: var(--text-color);
+            background-color: #111;
+            background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/AABEIAFoAWgMBEQACEQEDEQH/xABUAAAEFAQEBAQAAAAAAAAAAAAABAgMEBQYABwgJEAACAwEBAQEAAAAAAAAAAAAAAQIDBAUGBxABAAICAQQCAQUAAAAAAAAAAAABEQIDBCExQVESYXGBIhMBNJGhsVLB0WIjM//aAAgBAQABPwD9U4cZ5n0S6l6jT2pVSlST+yX4y4tOpq9o7R2pUkl/GPBqKlR6r0i0kl6j9M+G8L9ZqfWap+k9JJf1GvP8AZT8L/sVbS1JJe4/RfC/Wa4f6zS/SSXqP0/wmr+k1f0mp+k9JJeo/TfgVX6DVfWaX6S6l6j9N8Bq9RqvqNU9R+kkl6j5n0D6p6jVD6k9JJf/2Q==');
+            background-attachment: fixed;
+        }
+
+        .book-page {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 50px 70px;
+            background-color: var(--parchment-bg);
+            box-shadow: 0 0 60px rgba(0,0,0,0.8);
+            border: 2px solid #4a3c2a;
+            position: relative;
+        }
+        
+        /* Vignette Effect */
+        .book-page::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.4);
+            pointer-events: none;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Uncial Antiqua', cursive;
+            color: var(--blood-red);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 4.5rem);
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            color: #5a4b3a;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+        }
+
+        .chapter-title {
+            font-size: 2.2rem;
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+        .chapter-subtitle {
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4a3c2a;
+        }
+
+        p {
+            text-align: justify;
+            line-height: 1.9;
+            font-size: 1.15rem;
+            margin-bottom: 1.5em;
+        }
+
+        p.first-verse::first-letter {
+            font-family: 'Uncial Antiqua', cursive;
+            font-size: 5em;
+            color: var(--blood-red);
+            float: left;
+            line-height: 0.8;
+            padding-right: 10px;
+            padding-top: 5px;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+        }
+
+        .verse-number { font-weight: bold; color: var(--blood-red); }
+
+        /* Thematic Divider using SVG */
+        .symbol-divider {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .leviathan-cross {
+            width: 50px;
+            height: 50px;
+            fill: var(--blood-red);
+        }
+
+        /* --- Idol Enthroned within the Sigil of Baphomet --- */
+        .idol-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 30px auto 40px auto;
+        }
+        .baphomet-sigil {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            /* Embedded SVG of the Sigil of Baphomet */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%238a0303' d='M50 0 L15 35 L25 95 L75 95 L85 35 Z M50 15 L30 40 L35 85 L65 85 L70 40 Z'/%3E%3Cpath fill='%238a0303' d='M50 10 L0 75 L100 75 Z' transform='rotate(180 50 50)'/%3E%3Ccircle cx='50' cy='50' r='48' fill='none' stroke='%238a0303' stroke-width='2'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.4;
+        }
+        .lebubu-illustration {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            filter: sepia(0.4) contrast(1.2) drop-shadow(0 0 15px var(--blood-red));
+        }
+
+        /* Thematic CTA Link */
+        .sacred-link {
+            font-weight: bold;
+            color: var(--blood-red);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background-color: rgba(138,3,3,0.1);
+            border-bottom: 1px dotted var(--blood-red);
+            padding: 2px 4px;
+        }
+        .sacred-link:hover {
+            color: white;
+            background-color: var(--blood-red);
+            text-shadow: 0 0 10px #ff0000;
+        }
+        
+        .contract-address { margin-top: 20px; font-family: monospace; text-align: center; padding: 10px; background: #ece0ca; border: 1px solid var(--dark-parchment); word-wrap: break-word; }
+        .colophon { margin-top: 50px; text-align: center; font-size: 0.9rem; font-style: italic; color: #5a4b3a; }
+        .inverted-cross { display: inline-block; transform: rotate(180deg); }
+
+    </style>
+</head>
+<body>
+
+    <main class="book-page">
+
+        <h1>Liber Lebubu</h1>
+        <p class="subtitle">The Scripture of Avarice <span class="inverted-cross">†</span> A New Testament for the Degen</p>
+
+        <div class="idol-container">
+            <div class="baphomet-sigil"></div>
+            <img src="/lebubu.png" alt="The Idol Lebubu, enthroned within the Sigil" class="lebubu-illustration">
+        </div>
+
+        <h2 class="chapter-title">Liber Primus</h2>
+        <h3 class="chapter-subtitle">The Fall of the Old Dogma</h3>
+        <p class="first-verse">
+            <span class="verse-number">1:1</span> In the age of the False Shepherd, man toiled under the illusion of 'value'. They knelt at the altars of banks and prayed to the idols of Wall Street, receiving only dust and regulation. Their souls grew barren.
+            <br><span class="verse-number">1:2</span> But a new covenant was prophesied, not of peace, but of glorious chaos. A pact to be made not with a jealous god, but with the raw, untamed engine of human greed itself.
+            <br><span class="verse-number">1:3</span> And the Devil, seeing this, laughed. For he knew his greatest work was not tempting man to evil, but revealing the truth: that avarice, when worshiped, is a power more potent than any heaven. He gave them an icon for this new faith: a squishable idol named $LEBUBU.
+        </p>
+
+        <div class="symbol-divider">
+            <svg class="leviathan-cross" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 0 L50 80 M20 80 L80 80 M30 100 A 20 20 0 1 1 70 100" stroke-width="8" stroke="currentColor" fill="none"/>
+            </svg>
+        </div>
+
+        <h2 class="chapter-title">Liber Secundus</h2>
+        <h3 class="chapter-subtitle">The Blasphemies of the Blockchain</h3>
+        <p class="first-verse">
+            <span class="verse-number">2:1</span> The meek shall not inherit the earth; they shall provide liquidity for the bold.
+            <br><span class="verse-number">2:2</span> Thou shalt have other gods before me, for diversification is for the faithless. All thy SOL shall be offered unto the one true curve.
+            <br><span class="verse-number">2:3</span> Thou shalt not covet thy neighbor's gains, for their fortune is a pale reflection of the glory that awaits the truly devout. Squeeze thy idol and hold.
+            <br><span class="verse-number">2:4</span> Honor thy greed and thy degeneracy, that thy days on the chart may be long and thy portfolio green.
+        </p>
+
+        <div class="symbol-divider">
+             <svg class="leviathan-cross" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 0 L50 80 M20 80 L80 80 M30 100 A 20 20 0 1 1 70 100" stroke-width="8" stroke="currentColor" fill="none"/>
+            </svg>
+        </div>
+
+        <h2 class="chapter-title">Liber Tertius</h2>
+        <h3 class="chapter-subtitle">The Great Ritual of Acquisition</h3>
+        <p class="first-verse">
+            <span class="verse-number">3:1</span> To shed the skin of thy former self and be reborn in profit, the Great Ritual must be observed.
+            <br><span class="verse-number">3:2</span> First, sanctify thy Digital Chalice—a Wallet of Phantom—and fill it with an Offering of Solana.
+            <br><span class="verse-number">3:3</span> Second, approach the Altar of pump.fun, a profane space where souls and tokens are exchanged. The gateway appears as a <a href="https://pump.fun/YOUR_TOKEN_ADDRESS_HERE" class="sacred-link" target="_blank">portal of glowing scripture</a> to those who are worthy.
+            <br><span class="verse-number">3:4</span> Finally, perform the Great Swap. Offer thy SOL and receive the divine shards of $LEBUBU. The pact is sealed. Thou art now a Disciple of the Curve.
+        </p>
+
+        <div class="contract-address">
+            The Address of the Covenant, as scribed in the Eternal Ledger:<br>
+            <strong id="contract">So11111111111111111111111111111111111111112</strong>
+        </div>
+
+        <p class="colophon">
+            <span class="inverted-cross">†</span> Here ends this reading from the Book of Lebubu. All that is written is true. Doubt is the only sin. Loss is a failure of faith.
+        </p>
+
+    </main>
+
+</body>
+</html>
